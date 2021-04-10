@@ -3,7 +3,10 @@ class Routes {
     as = {
         postArticles: 'POSTArticles',
         getArticlesTitle: 'GETArticlesTitle',
-        getArticlesTitleComments: 'GETArticlesTitleComments'
+        getArticlesTitleComments: 'GETArticlesTitleComments',
+        postUsers: 'POSTUsers',
+        getTags: 'GETTags',
+        getArticlesFeed: 'GETArticlesFeed'
     }
 
     init(){
@@ -11,6 +14,9 @@ class Routes {
         cy.route('POST', '**/api/articles').as(this.as.postArticles)
         cy.route('GET', '**/api/articles/agilizei-title-**').as(this.as.getArticlesTitle)
         cy.route('GET', '**/api/articles/agilizei-title-**/comments').as(this.as.getArticlesTitleComments)
+        cy.route('POST', '**/api/users').as(this.as.postUsers)
+        cy.route('GET', '**/api/tags').as(this.as.getTags)
+        cy.route('GET',  '**/api/articles/feed**').as(this.as.getArticlesFeed)
     }
 }
 
